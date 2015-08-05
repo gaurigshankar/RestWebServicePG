@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'jetty'
+
+repositories {
+	mavenCentral()
+}
+defaultTasks = ['clean', 'jar']
+dependencies {
+	compile 'struts:struts:1.2.4'
+	compile 'com.sun.jersey:jersey-bundle:1.19'
+	compile 'com.google.code.gson:gson:2.3.1'
+	compile 'org.json:json:20141113'
+	compile 'com.sun.jersey:jersey-json:1.19'
+	compile 'org.apache.httpcomponents:httpclient:4.5'
+	
+	providedCompile 'javax.servlet:servlet-api:2.5'
+	runtime 'javax.servlet:jstl:1.1.2' 
+}
+
+task wrapper(type: Wrapper){
+	gradleVersion = '1.4'
+}
+httpPort = 8881
+
+jettyRun {
+ 
+} 
