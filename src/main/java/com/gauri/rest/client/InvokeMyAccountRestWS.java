@@ -21,7 +21,7 @@ public class InvokeMyAccountRestWS {
 	public static void main(String[] args) {
 		URL url;
 		try {
-			url = new URL("http://ca.qa-int.services.qa.walmart.com/ca-app/services/customers/91a33938-3e00-4ed9-8b37-20ce4cfa7048");
+			url = new URL("url value");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
@@ -29,16 +29,7 @@ public class InvokeMyAccountRestWS {
 
 			HttpGet get = new HttpGet(url.toString());
 			
-			get.addHeader("WM_CONSUMER.ID", "100");
-			get.addHeader("WM_QOS.CORRELATION_ID","1");
-			get.addHeader("WM_CONSUMER.NAME", "RestClient");
-			get.addHeader("WM_IFX.CLIENT_TYPE", "INTERNAL");
-			get.addHeader("WM_SVC.ENV", "qa");
-			get.addHeader("WM_SEC.AUTH_TOKEN", "ahha%&!^!)(!&");
-			get.addHeader("WM_SVC.VERSION", "0.2.12");
-			get.addHeader("WM_CONSUMER.IP","127.0.0.1");
-			get.addHeader("WM_CONSUMER.INTIMESTAMP","12");
-			get.addHeader("WM_SVC.NAME","ca");
+			get.addHeader("headerName", "headerValue");
 			
 			HttpResponse response = httpClient.execute(get);
 			int responseCode = response.getStatusLine().getStatusCode();
