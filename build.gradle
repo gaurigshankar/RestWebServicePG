@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'eclipse-wtp'
-apply plugin: 'jetty'
+apply plugin: 'war'
+apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
 
 repositories {
 	mavenCentral()
@@ -19,10 +20,10 @@ dependencies {
 }
 
 task wrapper(type: Wrapper){
-	gradleVersion = '1.4'
+	gradleVersion = '2.0'
 }
-httpPort = 8881
-
-jettyRun {
- 
-} 
+gretty {
+  servletContainer = 'tomcat8'
+  httpPort = project.hasProperty("httpPort") ? project.httpPort as int : 8881
+  
+}

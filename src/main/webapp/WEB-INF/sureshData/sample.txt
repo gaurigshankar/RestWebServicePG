@@ -1,3 +1,0 @@
-This is the sample text file created by Gauri.
-This will have two lines.
-This may be the third line in the file.
