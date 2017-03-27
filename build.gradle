@@ -24,8 +24,7 @@ task wrapper(type: Wrapper){
 }
 
 task gauri{
-	port1 =  $PORT;
-	println "Port1 :::: $port1"
+	
 	port2 = process.env.PORT;
 	println "Port2 :::: $port2"
 }
