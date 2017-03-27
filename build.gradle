@@ -26,5 +26,6 @@ gretty {
   servletContainer = 'tomcat8'
   httpPort = project.hasProperty("httpPort") ? project.httpPort as int : 8881
   println "*************** ########## Using the port $httpPort"
-  println "*************** ###### Heroku port variable Value process.env.PORT"
+  herokuPort = process.env.PORT
+  println "*************** ###### Heroku port variable Value $herokuPort"
 }
