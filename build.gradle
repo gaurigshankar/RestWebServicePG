@@ -23,16 +23,9 @@ task wrapper(type: Wrapper){
 	gradleVersion = '2.0'
 }
 
-task gauri{
-	
-	port2 = process.env.PORT;
-	println "Port2 :::: $port2"
-}
 
 gretty {
   servletContainer = 'tomcat8'
   httpPort = project.hasProperty("httpPort") ? project.httpPort as int : 8881
   println "*************** ########## Using the port $httpPort"
-  herokuPort = process.env.PORT
-  println "*************** ###### Heroku port variable Value $herokuPort"
 }
