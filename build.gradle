@@ -22,6 +22,14 @@ dependencies {
 task wrapper(type: Wrapper){
 	gradleVersion = '2.0'
 }
+
+task gauri{
+	port1 =  $PORT;
+	println "Port1 :::: $port1"
+	port2 = process.env.PORT;
+	println "Port2 :::: $port2"
+}
+
 gretty {
   servletContainer = 'tomcat8'
   httpPort = project.hasProperty("httpPort") ? project.httpPort as int : 8881
