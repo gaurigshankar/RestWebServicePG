@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -jar build/libs/RestWebServicePG.war
+web: java $JAVA_OPTS -jar build/libs/lib/jetty-runner-9.3.3.v20150827.jar --port $PORT build/libs/RestWebServicePG.war

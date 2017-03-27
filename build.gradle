@@ -14,16 +14,24 @@ dependencies {
 	compile 'org.json:json:20141113'
 	compile 'com.sun.jersey:jersey-json:1.19'
 	compile 'org.apache.httpcomponents:httpclient:4.5'
+	compile 'org.eclipse.jetty:jetty-runner:9.3.3.v20150827'
 	
 	providedCompile 'javax.servlet:servlet-api:2.5'
 	runtime 'javax.servlet:jstl:1.1.2' 
+}
+
+task copyToLib( type: Copy ) {
+    into "$buildDir/libs/lib"
+    from configurations.runtime
 }
 
 task wrapper(type: Wrapper){
 	gradleVersion = '2.0'
 }
 
-
+war {
+	dependsOn copyToLib
+}
 gretty {
   servletContainer = 'tomcat8'
   httpPort = project.hasProperty("httpPort") ? project.httpPort as int : 8881
